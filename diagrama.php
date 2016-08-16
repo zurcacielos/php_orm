@@ -1,6 +1,6 @@
 <?php
 
 $content = "<img src='diagrama.png' class='img-fluid'/>";
-$pagina = 'index';
+$pagina = 'diagrama';
 
 require('layout.php');
