@@ -71,7 +71,6 @@ class Usuario extends Modelo
         $pago->fecha = $fecha;
         if ($pago->guardar()) {
             // como no hay DB, el codigopago lo tenemos que agregar manualmente inventandolo
-            $pago->codigopago = 66;
             $up = new UsuarioPago();
             $up->codigopago = $pago->codigopago;
             $up->codigousuario = $this->codigousuario;

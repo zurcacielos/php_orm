@@ -30,7 +30,7 @@ class testsUnitarios
         $this->usuario->usuario = 'Fabian Sosa';
         $this->usuario->edad = 18;
         $this->usuario->clave = 'secreto';
-        $this->usuario->codigousuario = 88;
+        $this->usuario->guardar(); // genera el codigousuario
         return $this->usuario;
     }
 
@@ -62,7 +62,6 @@ class testsUnitarios
         $usuario->usuario = 'Fabian Sosa';
         $usuario->edad = 18;
         $usuario->clave = 'secreto';
-        $usuario->codigousuario = 88; // al no tener DB no llena el autoinc
         if ($usuario->guardar()) {
             echo "El usuario se guardo correctamente";
         }

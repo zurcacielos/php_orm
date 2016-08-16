@@ -168,7 +168,12 @@ class Modelo
     public function guardar() {
         if ($this->esValido()) {
             $resultado = self::nuevaConsulta()->establecerModelo($this)->guardar();
-            // aqui podrian guardarse los auto numericos generados durante la consulta en el objeto
+            //TODO: aqui podrian guardarse los auto numericos generados durante la consulta en el objeto
+            // como no hay db, agregamos un numero par a la PK, si es de pk simple y no esta creada aun (modo insercion)
+            if (!is_array($this->primaryKey) && empty($this->obtenerAtributo($this->primaryKey))) {
+                $numeroParAlAzar = mt_rand() & ~1;
+                $this->establecerAtributo($this->primaryKey,$numeroParAlAzar);
+            }
             return $this;
         }
     }
